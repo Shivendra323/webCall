@@ -3,12 +3,16 @@ const expressHandlebars = require('express-handlebars');
 const nodemon = require('nodemon');
 const bodyParser = require('body-parser');
 
+const routesRoutes = require('./routes/routes');
+
 var path = require('path');
 var app = express();
 
 app.use(bodyParser.urlencoded({
 	extended : true
 }));
+
+app.use(express.static('css'));
 
 app.set('views', path.join(__dirname, "/views/"));
 
@@ -24,9 +28,7 @@ app.get('/', (req, res)=>{
     res.render('index', {});
 });
 
-app.get('/login', (req, res)=>{
-    res.render('login', {});
-})
+app.use("/routes", routesRoutes)
 
 var server = app.listen(4444, () => {
     console.log(4444);

@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
 	extended : true
 }));
 
-app.use(express.static('css'));
+app.use(express.static('public'));
 
 app.set('views', path.join(__dirname, "/views/"));
 

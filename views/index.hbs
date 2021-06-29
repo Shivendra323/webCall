@@ -9,12 +9,44 @@
         </nav>
 
         <div class="container" id="RoomCreateJoin">
-            <div class="panel-group">
+            <div id="panel" class="row">
+                <div class="panel panel-primary ">
+                    <div class="panel-heading">
+                        <center><h3>Welcome to P2P Video Chat</h3></center>
+                    </div>
+                    <div class="panel-body">
+                        <center>
+                            <form action="/routes/room" method="POST">
+                                <input id="username" type="text" name="username" placeholder="Username"></input><br/><br/>
+                                <input id="roomId" name="roomId" type="text" placeholder="Room ID"></input><br/><br/>
+                                <select name="createORjoin" id="createORjoin">
+                                    <option value="Create Room">Create Room</option>
+                                    <option value="Join Room">Join Room</option>
+                                </select>
+                                <input id="createRoom" type="submit" value="Submit" class="btn btn-primary"></input>
+                            </form>
+                        </center>
+                    </div>
+                    <div class="panel-footer"></div>
+                </div>
+            </div>
+
+            <div id='signUp'>
                 <div class="panel panel-primary">
-                    <div class="panel-header">kjdgsakdgkgdjhDkg</div>
-                    <div class="panel-body">A Basic shivendra Panel</div>
-                    <div class="panel-footer">
-                        mdnkjhdhkjdkjsbdiyghdbhjg
+                    <div class="panel-heading">
+                        <center><h3>Register</h3></center>
+                    </div>
+                    <div class="panel-body">
+                        <center>
+                            <form>
+                                <input id="name" type="name" name="name" placeholder="Name" /><br><br>
+                                <input id="email" type="email" name="email" placeholder="Email" /><br><br>
+                                <input id="password" type="password" name="password" placeholder="Password" /><br><br>
+                                <input id="re-password" type="re-password" name="re-password" placeholder="re-Password" /><br><br>
+                                <input id="submit" type="submit" name="submit" placeholder="submit" class="btn btn-primary" /><br>
+                            </form>
+                        </center>
+                    <div class="panel-footer"></div>
                     </div>
                 </div>
             </div>

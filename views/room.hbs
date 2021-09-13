@@ -1,3 +1,74 @@
-{{#each data}}
-<p>{{this.roomId}}</p>
-{{/each}}
+<html>
+    <head>
+        <title>Hii_bol</title>
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="css/style.css" >
+    </head>
+    <body>
+        <nav class ="nav navbar-dark"><h1>hello its me</h1></nav>
+        <footer class="footer">
+            <button id="mic-btn" onclick="#" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-headphones"></span>
+            </button>
+            <button id="video-btn" onclick="#" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-facetime-video"></span>
+            </button>
+            <button id="chat-btn" onclick="chat()" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-comment"></span>
+            </button>
+            <button id="screen-btn" onclick="#" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-share"></span>
+            </button>
+            <button id="leave-btn" onclick="#" class="btn btn-primary" >
+                <span class="glyphicon glyphicon-log-out"></span>
+            </button>
+        </footer>
+
+        <div id="chat-box" class="col-lg-4 col-lg-offset-8 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-6">
+            <div id="panel" class="row">
+                <div class="panel panel-primary ">
+                    <div class="panel-heading">
+                        <center><h3>ChatBox</h3></center>
+                    </div>
+                    <div class="panel-body">
+                        <center>
+                            
+                        </center>
+                    </div>
+                    <div class="panel-footer">
+                        <center>
+                            <form action="/routes/room" method="GET">
+                                <input type="text" name="massage" placeholder="type..."/>
+                                <button class="glyphicon glyphicon-send btn btn-primary"></button>
+                            </form>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <script>
+            function chat() {
+                if(document.getElementById("chat-box").style.display == "none"){
+                    document.getElementById("chat-box").style.display = "block";
+                    document. getElementById('chat-btn'). style. backgroundColor = 'Red';
+                }else{
+                    document.getElementById("chat-box").style.display = "none";
+                    document. getElementById('chat-btn'). style. backgroundColor = 'blue';
+                }
+                }
+        </script>
+
+        <script>
+            var username = "{{{data.username}}}";
+            var roomId = "{{{data.roomId}}}";
+            var createORjoin = "{{{data.createORjoin}}}";
+        </script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+        <script src="/js/main.js"></script>
+    </body>
+</html>

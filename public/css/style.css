@@ -7,3 +7,20 @@ nav{
 #RoomCreateJoin{
     margin-top: 2%;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 5%;
+    width: 100%;
+    background-color: #cbff72;
+    color: black;
+    text-align: center;
+ }
+
+ span {
+    font-size: 250%;
+    margin-top: 2px;
+    padding-right: 2%;
+ }

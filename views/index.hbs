@@ -1,6 +1,8 @@
 <html>
     <head>
         <title>Home</title>
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="css/style.css" >
     </head>
     <body>
         
@@ -16,7 +18,7 @@
                     </div>
                     <div class="panel-body">
                         <center>
-                            <form action="/routes/room" method="POST">
+                            <form action="/routes/room" method="GET">
                                 <input id="username" type="text" name="username" placeholder="Username"></input><br/><br/>
                                 <input id="roomId" name="roomId" type="text" placeholder="Room ID"></input><br/><br/>
                                 <select name="createORjoin" id="createORjoin">

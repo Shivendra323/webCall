@@ -1,0 +1,76 @@
+
+@mixin flexing($fd,$jc,$ai) {
+    display: flex;
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+nav{
+    background: #cbff72;
+}
+
+#RoomCreateJoin{
+    margin-top: 2%;
+}
+
+div.chat-space{
+    height: 50%;
+    width: 100%;
+    overflow-y: auto;
+    background-color:darkgrey;
+    div.new-alert{
+        background-color: white;
+        border-radius: 50px;
+        width: max-content;
+        padding: 2px 20px;
+        margin: 0 auto;
+    }
+    div.message{
+        background-color:darkblue;
+        color: white;
+        border-radius: 10px 50px 50px 10px;
+        width: 250px;
+        padding: 5px 15px;
+        margin-bottom: 2px;
+        
+    }
+    div.message-outgoing{
+        margin-left: auto;
+        color: white;
+        background-color: black;
+        border-radius: 50px 10px 10px 50px;
+        text-align: right;
+    }
+}
+
+div.panel-footer{
+    div.massage-input{
+        @include flexing(row, space-between, stretch );
+    }
+    input{
+        padding: 10px 20px;
+        border-radius: 50px;
+        width: 100%;
+    }
+    button{
+        border-radius: 10px;
+    }
+}
+
+
+footer.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 5%;
+    width: 100%;
+    background-color: #cbff72;
+    color: black;
+    text-align: center;
+
+    button{
+        border-radius: 50px;
+        margin-right: 5px;
+    }
+ }

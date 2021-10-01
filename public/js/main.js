@@ -1,4 +1,17 @@
+var msgSend = document.getElementById('msg-send');
+var chatSpace = document.getElementById('chat-space');
+var msgOutgoing = document.getElementById('msgOutgoing');
 const socket = io.connect();
+
+//Event Listener...
+msgSend.addEventListener('click', outgoing);
+msgOutgoing.addEventListener('keyup', (e) => {
+   if(e.key === 'Enter') {
+      outgoing();
+   }
+})
+
+
 
 socket.on('message', message => {
     console.log(message);
@@ -46,7 +59,7 @@ socket.on('created', function(room) {
 
 socket.on('noRoom', function(room) {
    console.log('not exist Room ' + room );
-   //window.location = "index.html";
+   window.location = "/";
 });
 
 socket.on('join', function (room){
@@ -74,7 +87,7 @@ socket.on('full', function(room) {
 
 socket.on('alreadyRoom', function(room) {
    console.log('Already exist Room ' + room );
-   //window.location = "index.html";
+   window.location = "/";
 });
  
 //console.log(user);
@@ -82,3 +95,52 @@ socket.on('alreadyRoom', function(room) {
 console.log(username);
 console.log(roomId);
 console.log(createORjoin);
+
+//Outgoing Chat......................
+
+function outgoing(){
+   var msgOutgoing = document.getElementById('msgOutgoing').value;
+
+   if(msgOutgoing == ""){
+
+   }else{
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = date+' '+time;
+      var chatSend = [dateTime, msgOutgoing];
+
+      chatIsLive(chatSend, 'message-outgoing')
+      //console.log(msgOutgoing);
+      document.getElementById('msgOutgoing').value = "";
+
+      socket.emit('chatIncoming', chatSend);
+   }
+}
+
+//ChatIsLive.............
+
+function chatIsLive(chatSend, type){ 
+   let mainDiv = document.createElement('div')
+   let className = type
+   mainDiv.classList.add(type, 'message')
+   var dT = chatSend[0];
+   var inChat = chatSend[1];
+
+   let markup = `
+      <p>${dT}</p>
+      <p>${inChat}</p>
+   `
+   mainDiv.innerHTML = markup
+
+   chatSpace.appendChild(mainDiv)
+   console.log(msgOutgoing);
+   document.getElementById('msgOutgoing').value = "";
+   chatSpace.scrollTop = chatSpace.scrollHeight
+}
+
+
+// Recieve messages 
+socket.on('chatIncoming', function(chatSend){
+   chatIsLive(chatSend, 'message-incomming');
+});

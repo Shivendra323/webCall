@@ -5,7 +5,42 @@
         <link rel="stylesheet" href="css/style.css" >
     </head>
     <body>
+<!--nav-bar-->
         <nav class ="nav navbar-dark"><h1>hello its me</h1></nav>
+        
+<!--ChatBox-->
+        <div id="chat-box" class="chat-box col-lg-4 col-lg-offset-8 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-6">
+            <div id="panel" class="row">
+                <div class="panel panel-primary ">
+                    <div class="panel-heading">
+                        <center><h3>ChatBox</h3></center>
+                    </div>
+                    <div id="chat-space" class="panel-body chat-space">
+                        <div class="new-alert">
+                            <p>Shiv joined</p>
+                        </div>
+                        <!--<div class="message message-incomming">
+                            <p>message</p>
+                        </div>
+                        <div class="message message-outgoing">
+                            <p>message</p>
+                        </div> -->
+                    </div>
+                    <div class="panel-footer">
+                        <center>
+                            <div class="massage-input">
+                                <input id="msgOutgoing" type="text" name="massage" placeholder="type..."/>
+                                <button id="msg-send" class="glyphicon glyphicon-send btn btn-primary"></button>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+<!--footer-of-page-->
+
         <footer class="footer">
             <button id="mic-btn" onclick="#" class="btn btn-primary" >
                 <span class="glyphicon glyphicon-headphones"></span>
@@ -23,30 +58,6 @@
                 <span class="glyphicon glyphicon-log-out"></span>
             </button>
         </footer>
-
-        <div id="chat-box" class="col-lg-4 col-lg-offset-8 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-6">
-            <div id="panel" class="row">
-                <div class="panel panel-primary ">
-                    <div class="panel-heading">
-                        <center><h3>ChatBox</h3></center>
-                    </div>
-                    <div class="panel-body">
-                        <center>
-                            
-                        </center>
-                    </div>
-                    <div class="panel-footer">
-                        <center>
-                            <form action="/routes/room" method="GET">
-                                <input type="text" name="massage" placeholder="type..."/>
-                                <button class="glyphicon glyphicon-send btn btn-primary"></button>
-                            </form>
-                        </center>
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
 
 
